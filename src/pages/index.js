@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
 import CardLogIn from "@/components/CardLogIn";
-import Tags from "@/components/Tags";
+import Categories from "@/components/Categories";
+import OtherCard from "@/components/OtherCard";
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl">
@@ -10,7 +11,8 @@ export default function Home() {
         <aside className="hidden flex-col gap-2 md:block md:grow md:basis-56 lg:flex">
           {/**Este aside es el menu hamburguesa */}
           <CardLogIn></CardLogIn>
-          <Tags></Tags>
+          <Categories></Categories>
+          <OtherCard></OtherCard>
         </aside>
         <main className="flex-8/12 border border-amber-600 lg:flex-6/12">
           <h3>Este es mi main</h3>
