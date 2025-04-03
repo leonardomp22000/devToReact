@@ -10,11 +10,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-
         primary: {
-          main: "#1d70ac", // #163853      fd6f00
-          hover: "#2c8ecb", // #2c8ecb     #ff890a
-          active: " #195a8b  ", // #195a8b        #cc5002
+          title: "#242424",
+          heading: "#171717",
+          subtitle: "#575757",
+          link: "#404040",
         }, // Puedes definir el color como una variable
         secondary: "#FF4081",
         customGray: "#B0BEC5",
