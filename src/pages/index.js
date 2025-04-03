@@ -3,6 +3,7 @@ import CardLogIn from "@/components/CardLogIn";
 import Categories from "@/components/Categories";
 import OtherCard from "@/components/OtherCard";
 import SocialMedia from "@/components/SocialMedia";
+import PopularTags from "@/components/PopularTags";
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl">
@@ -15,6 +16,7 @@ export default function Home() {
           <Categories></Categories>
           <OtherCard></OtherCard>
           <SocialMedia></SocialMedia>
+          <PopularTags></PopularTags>
         </aside>
         <main className="flex-8/12 border border-amber-600 lg:flex-6/12">
           <h3>Este es mi main</h3>
