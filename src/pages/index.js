@@ -4,6 +4,9 @@ import Categories from "@/components/Categories";
 import OtherCard from "@/components/OtherCard";
 import SocialMedia from "@/components/SocialMedia";
 import PopularTags from "@/components/PopularTags";
+import Button from "@/components/Button";
+import MainCard from "@/components/MainCard";
+import Posts from "@/components/Posts";
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl">
@@ -18,8 +21,17 @@ export default function Home() {
           <SocialMedia></SocialMedia>
           <PopularTags></PopularTags>
         </aside>
-        <main className="flex-8/12 border border-amber-600 lg:flex-6/12">
-          <h3>Este es mi main</h3>
+        <main className="flex-8/12 lg:flex-6/12">
+          <div className="flex">
+            <Button variant="textCard" className="font-bold">
+              {" "}
+              Relevant
+            </Button>
+            <Button variant="textCard"> Latest</Button>
+            <Button variant="textCard"> Top</Button>
+          </div>
+          <MainCard></MainCard>
+          <Posts></Posts>
         </main>
 
         <aside className="hidden border border-amber-600 lg:flex lg:basis-1/4">
