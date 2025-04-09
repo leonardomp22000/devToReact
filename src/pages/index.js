@@ -7,6 +7,9 @@ import PopularTags from "@/components/PopularTags";
 import Button from "@/components/Button";
 import MainCard from "@/components/MainCard";
 import Posts from "@/components/Posts";
+import Challenges from "@/components/Challenges";
+import DiscussCards from "@/components/DiscussCards";
+import WaterCoolerCards from "@/components/WatercoolerCards";
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl">
@@ -21,10 +24,9 @@ export default function Home() {
           <SocialMedia></SocialMedia>
           <PopularTags></PopularTags>
         </aside>
-        <main className="flex-8/12 lg:flex-6/12">
+        <main className="flex flex-8/12 flex-col gap-3.5 lg:flex-6/12">
           <div className="flex">
             <Button variant="textCard" className="font-bold">
-              {" "}
               Relevant
             </Button>
             <Button variant="textCard"> Latest</Button>
@@ -34,10 +36,10 @@ export default function Home() {
           <Posts></Posts>
         </main>
 
-        <aside className="hidden border border-amber-600 lg:flex lg:basis-1/4">
-          {" "}
-          {/**Este aside si desaparece por completo */}
-          <h2>Este es mi aside derecho</h2>
+        <aside className="hidden flex-col gap-4 lg:flex lg:basis-1/4">
+          <Challenges></Challenges>
+          <DiscussCards></DiscussCards>
+          <WaterCoolerCards></WaterCoolerCards>
         </aside>
       </div>
     </div>

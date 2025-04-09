@@ -2,7 +2,7 @@ import CardBase from "./CardBase";
 import Post from "./Post";
 export default function Posts() {
   return (
-    <div className="mt-4 flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <CardBase>
         <Post
           creationDate={"Apr 3"}
