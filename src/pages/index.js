@@ -7,6 +7,7 @@ import PopularTags from "@/components/PopularTags";
 import Button from "@/components/Button";
 import MainCard from "@/components/MainCard";
 import Posts from "@/components/Posts";
+import Challenges from "@/components/Challenges";
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl">
@@ -34,10 +35,8 @@ export default function Home() {
           <Posts></Posts>
         </main>
 
-        <aside className="hidden border border-amber-600 lg:flex lg:basis-1/4">
-          {" "}
-          {/**Este aside si desaparece por completo */}
-          <h2>Este es mi aside derecho</h2>
+        <aside className="hidden flex-col lg:flex lg:basis-1/4">
+          <Challenges></Challenges>
         </aside>
       </div>
     </div>
