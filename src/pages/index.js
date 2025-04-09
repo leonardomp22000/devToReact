@@ -24,10 +24,9 @@ export default function Home() {
           <SocialMedia></SocialMedia>
           <PopularTags></PopularTags>
         </aside>
-        <main className="flex-8/12 lg:flex-6/12">
+        <main className="flex flex-8/12 flex-col gap-3.5 lg:flex-6/12">
           <div className="flex">
             <Button variant="textCard" className="font-bold">
-              {" "}
               Relevant
             </Button>
             <Button variant="textCard"> Latest</Button>
