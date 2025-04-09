@@ -8,6 +8,8 @@ import Button from "@/components/Button";
 import MainCard from "@/components/MainCard";
 import Posts from "@/components/Posts";
 import Challenges from "@/components/Challenges";
+import DiscussCards from "@/components/DiscussCards";
+import WaterCoolerCards from "@/components/WatercoolerCards";
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl">
@@ -35,8 +37,10 @@ export default function Home() {
           <Posts></Posts>
         </main>
 
-        <aside className="hidden flex-col lg:flex lg:basis-1/4">
+        <aside className="hidden flex-col gap-4 lg:flex lg:basis-1/4">
           <Challenges></Challenges>
+          <DiscussCards></DiscussCards>
+          <WaterCoolerCards></WaterCoolerCards>
         </aside>
       </div>
     </div>
