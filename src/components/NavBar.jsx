@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 export default function NavBar() {
   return (
-    <nav className="flex justify-between bg-white p-2.5">
+    <nav className="flex justify-between border-b border-b-gray-200 bg-white p-2.5">
       <div className="flex gap-2 md:flex-2/3">
         <div className="md:hidden">
           <Button className="!p-1">
