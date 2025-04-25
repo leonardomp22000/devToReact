@@ -1,45 +1,55 @@
 import LoginOptionButton from "./LoginOptionButton";
-import { EyeIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+
 const loginOptions = [
   {
     logo: "/Icons/appleLogin.svg",
-    option: "Continue with Apple",
+    option: "Apple",
   },
   {
     logo: "/Icons/facebookLogin.svg",
-    option: "Continue with Facebook",
+    option: "Facebook",
   },
   {
     logo: "/Icons/foremLogin.svg",
-    option: "Continue with Forem",
+    option: "Forem",
   },
   {
     logo: "/Icons/gitHubLogin.svg",
-    option: "Continue with GitHub",
+    option: "GitHub",
   },
   {
     logo: "Icons/googleLogin.svg",
-    option: "Continue with Google",
+    option: "Google",
   },
   {
     logo: "Icons/xLogin.svg",
-    option: "Continue with Twitter (X)",
+    option: "Twitter (X)",
   },
 ];
 
-export default function LoginOptions() {
+export default function LoginOptions({ isRegistered }) {
   return (
     <section>
       {loginOptions.map((option, index) => {
+        const label = `${isRegistered ? "Continue with" : "Sign up with"} ${option.option}`;
         return (
           <div key={option.option - index} className="my-3">
-            <LoginOptionButton
-              option={option.option}
-              logo={option.logo}
-            ></LoginOptionButton>
+            <LoginOptionButton option={label} logo={option.logo} />
           </div>
         );
       })}
+
+      {!isRegistered && (
+        <div className="my-3">
+          <Link href={"/users/sign_up?state=email_signup"}>
+            <LoginOptionButton
+              option="Sign up with Email"
+              logo="/Icons/email.svg" // Usa el ícono que desees
+            />
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
