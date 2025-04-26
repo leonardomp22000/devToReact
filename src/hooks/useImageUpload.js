@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 
 export function useImageUpload({ cloudName, uploadPreset }) {
   const [uploading, setUploading] = useState(false);
-  const [fileName, setFileName] = useState("Sin archivos seleccionados");
+  const [fileName, setFileName] = useState("No file selected");
   const fileInputRef = useRef(null);
 
   const triggerFileSelect = () => {

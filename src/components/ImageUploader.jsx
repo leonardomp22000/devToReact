@@ -20,7 +20,7 @@ export default function ImageUploader({ setFieldValue }) {
       <p>Profile image</p>
       <div className="flex items-center gap-3.5 rounded-xl border border-black/10 p-3">
         <Button variant="outlined" type="button" onClick={triggerFileSelect}>
-          {uploading ? "Subiendo..." : "Seleccionar archivo"}
+          {uploading ? "Uploading..." : "Select file"}
         </Button>
         <p className="text-black/75">{fileName}</p>
       </div>
