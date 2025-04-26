@@ -1,6 +1,7 @@
 import Button from "./Button";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
+import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 export default function NavBar() {
   return (
@@ -23,11 +24,13 @@ export default function NavBar() {
       </div>
 
       <div className="flex justify-end gap-2.5 md:flex-1/3">
-        <div className="hidden md:block">
+        {" "}
+        <Link className="hidden md:block" href="/auth">
           <Button variant="text">Log in</Button>
-        </div>
-
-        <Button variant="outlined">Create Account</Button>
+        </Link>
+        <Link href="/auth?state=new-user">
+          <Button variant="outlined">Create Account</Button>
+        </Link>
       </div>
     </nav>
   );
