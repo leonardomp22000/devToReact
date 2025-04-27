@@ -22,7 +22,7 @@ export default function SignupForm() {
         toast.error("Error al registrar usuario");
         return;
       }
-      console.log(values);
+
       toast.success("Usuario registrado exitosamente");
       router.push("http://localhost:3000/");
     } catch (error) {
