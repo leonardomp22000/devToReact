@@ -16,3 +16,10 @@ export const sign_upSchema = Yup.object().shape({
     .oneOf([Yup.ref("password"), null], "Las contraseñas deben coincidir")
     .required("La contraseña es obligatoria"),
 });
+
+export const loginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("El email no es valido")
+    .required("El email es obligatorio"),
+  password: Yup.string().required("La contraseña es requerida"),
+});

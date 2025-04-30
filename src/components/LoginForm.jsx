@@ -1,19 +1,66 @@
+import jwt_decode from "jwt-decode";
 import Input from "./Input";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
+import { Formik, Form } from "formik";
+import { loginSchema } from "@/hooks/validationSchemas";
+import { useRouter } from "next/router";
 
 export default function LoginForm() {
+  const router = useRouter();
+  const handleSubmit = async (values, { setErrors, setSubmitting }) => {
+    try {
+      const endpoint = "http://localhost:8080/auth/login";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await response.json();
+      if (!data.success) {
+        setErrors({ general: "Credenciales invalidas" });
+        return;
+      }
+      const token = data.data.token;
+      localStorage.setItem("authToken", token);
+
+      router.push("http://localhost:3000?state=new");
+    } catch (error) {
+      console.error("Error de conexion", error);
+      setErrors({ general: "Error al conectar con el servidor" });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
-    <form className="flex flex-col gap-4" action="">
-      <Input type="email" label="Email" />
-      <Input type="password" label="Password" />
-      <div className="flex items-center justify-between">
-        <Checkbox label="Remember me "></Checkbox>
-        <a className="font-sans text-blue-700" href="#">
-          Forgot password
-        </a>
-      </div>
-      <Button className="bg-blue-700 text-white"> Log in</Button>
-    </form>
+    <Formik
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+      validationSchema={loginSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ isSubmitting, errors }) => (
+        <Form className="flex flex-col gap-4" action="">
+          <Input name="email" type="email" label="Email" />
+          <Input name="password" type="password" label="Password" />
+          <div className="flex items-center justify-between">
+            <Checkbox label="Remember me "></Checkbox>
+            <a className="font-sans text-blue-700" href="#">
+              Forgot password
+            </a>
+          </div>
+          {errors.general && (
+            <div className="mt-2 text-sm text-red-500">{errors.general}</div>
+          )}
+          <Button type="submit" className="bg-blue-700 text-white">
+            {" "}
+            {isSubmitting ? "Logging in " : "Log in"}
+          </Button>
+        </Form>
+      )}
+    </Formik>
   );
 }
