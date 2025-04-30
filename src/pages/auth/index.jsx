@@ -35,10 +35,15 @@ export default function AuthPage() {
         <LoginOptions isRegistered={isRegistered}></LoginOptions>
 
         {isRegistered && (
-          <div className="flex w-full justify-evenly">
-            <span className="w-full border border-gray-200"></span>
-            <div>OR</div>
-            <div className="w-full border border-gray-200"></div>
+          <div className="flex w-full flex-col justify-evenly">
+            {/* <div>
+              <span className="w-full border border-gray-200"></span>
+              <div>OR</div>
+              <div className="w-full border border-gray-200"></div>
+            </div> */}
+
+            <div className="mx-auto">OR</div>
+
             <LoginForm></LoginForm>
           </div>
         )}
