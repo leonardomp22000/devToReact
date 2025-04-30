@@ -10,7 +10,7 @@ export default function Button({
   const variants = {
     outlined:
       "border border-[#3B49DF]  hover:bg-blue-700 hover:text-white text-[#3B49DF]",
-    text: "hover:bg-blue-50 hover:text-blue-700",
+    text: "hover:bg-blue-100 hover:text-blue-800",
     textCard: "text-lg hover:bg-white hover:text-blue-700 hover:no-underline",
     contained: "bg-blue-700 text-white hover:bg-blue-800",
   };
