@@ -1,3 +1,4 @@
+import jwt_decode from "jwt-decode";
 import Input from "./Input";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
@@ -22,6 +23,7 @@ export default function LoginForm() {
       }
       const token = data.data.token;
       localStorage.setItem("authToken", token);
+
       router.push("http://localhost:3000?state=new");
     } catch (error) {
       console.error("Error de conexion", error);
