@@ -1,5 +1,6 @@
 import NavPost from "@/components/NavPost";
 import PostTitle from "@/components/PostTitle";
+import ActionBarPost from "@/components/ActionBarPost";
 export default function () {
   return (
     <section className="mx-auto max-w-6xl border border-red-800">
@@ -9,10 +10,8 @@ export default function () {
 
           <PostTitle></PostTitle>
 
-          <div className="border border-red-600">
-            {" "}
-            Esta es la seccion de la barra de acciones
-          </div>
+          <ActionBarPost></ActionBarPost>
+
           <div className="border border-red-600">
             {" "}
             Esta es la seccion del contenido del post
