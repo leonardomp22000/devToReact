@@ -1,4 +1,3 @@
-import jwt_decode from "jwt-decode";
 import Input from "./Input";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
