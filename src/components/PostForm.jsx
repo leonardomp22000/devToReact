@@ -4,9 +4,38 @@ import { postSchema } from "@/hooks/validationSchemas";
 import ActionBarPost from "@/components/ActionBarPost";
 import BodyPostInput from "@/components/BodyPostInput";
 import Button from "./Button";
+import { useRouter } from "next/router";
 export default function PostForm() {
-  const handleSubmit = (values) => {
-    console.log(values);
+  const router = useRouter();
+  const handleSubmit = async (values, { setErrors, setSubmitting }) => {
+    try {
+      const token = localStorage.getItem("authToken");
+      const picture = "Este es el link de la imagen";
+      const dataAuth = { ...values, image: picture };
+      if (!token) {
+        setErrors({ general: "No autorizado" });
+      }
+
+      const endpoint = "http://localhost:8080/post";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify(dataAuth),
+      });
+      const data = await response.json();
+      if (!data.success) {
+        setErrors({ general: "No autorizado" });
+        return;
+      }
+      router.push("http://localhost:3000");
+      console.log("Datos guardados correctamente");
+    } catch (error) {
+      console.error("Error de conexion", error);
+      setErrors({ general: "Error al conectar con el servidor" });
+    }
   };
   return (
     <Formik
