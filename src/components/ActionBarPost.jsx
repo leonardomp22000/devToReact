@@ -19,7 +19,7 @@ export default function ActionBarPost() {
     <section className="mx-auto">
       {actions.map((action) => {
         return (
-          <Button key={action} className="!p-2.5" variant="text">
+          <Button type="button" key={action} className="!p-2.5" variant="text">
             <Image width={20} height={20} alt={action} src={action}></Image>
           </Button>
         );
