@@ -1,5 +1,6 @@
 import NavPost from "@/components/NavPost";
 import PostForm from "@/components/PostForm";
+import PostMessage from "@/components/PostMessage";
 
 export default function () {
   return (
@@ -9,9 +10,8 @@ export default function () {
           <NavPost></NavPost>
           <PostForm></PostForm>
         </section>
-        <section className="hidden border border-red-600 md:block md:flex-1/3">
-          {" "}
-          Aqui es donde estara el mensaje de escribit el post
+        <section className="flex w-full flex-col justify-evenly">
+          <PostMessage />
         </section>
       </section>
     </section>
