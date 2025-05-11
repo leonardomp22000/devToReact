@@ -22,7 +22,7 @@ export default function () {
             </Button>
           </span>
         </div>
-        <div className="p-4">
+        <div className="md:p-4">
           <Image
             className="rounded-lg"
             width={800}

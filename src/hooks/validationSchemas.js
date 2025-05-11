@@ -23,3 +23,8 @@ export const loginSchema = Yup.object().shape({
     .required("El email es obligatorio"),
   password: Yup.string().required("La contraseña es requerida"),
 });
+
+export const postSchema = Yup.object().shape({
+  title: Yup.string().required("El titulo es requerido"),
+  body: Yup.string().required("El cuerpo del mensaje es requerido"),
+});

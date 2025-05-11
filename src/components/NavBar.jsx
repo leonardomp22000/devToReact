@@ -34,7 +34,7 @@ export default function NavBar({ isLogged }) {
         </div>
       ) : (
         <div className="flex justify-end gap-2.5 md:flex-1/3">
-          <Link href="/auth?state=new-user">
+          <Link href="http://localhost:3000/new">
             <Button variant="outlined">Create Post</Button>
           </Link>
         </div>
