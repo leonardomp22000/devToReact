@@ -7,7 +7,7 @@ import Button from "./Button";
 import { useRouter } from "next/router";
 export default function PostForm() {
   const router = useRouter();
-  const handleSubmit = async (values, { setErrors, setSubmitting }) => {
+  const handleSubmit = async (values, { setErrors }) => {
     try {
       const token = localStorage.getItem("authToken");
       const picture = "Este es el link de la imagen";
