@@ -7,9 +7,10 @@ export default function Post({
   userPicture,
   userName,
   mainText,
+  body,
 }) {
   return (
-    <CardBase>
+    <CardBase className="!p-1 md:p-4">
       <div className="flex items-center gap-2">
         <Image
           src={userPicture}
@@ -24,10 +25,11 @@ export default function Post({
           </span>
         </div>
       </div>
-      <div className="font-sans text-2xl font-bold hover:text-blue-700">
+      <div className="font-sans text-xl font-bold hover:text-blue-700 md:text-2xl">
         {mainText}
       </div>
-      <div className="flex">
+      <div className="text-lg text-black/90">{body}</div>
+      <div className="flex flex-wrap">
         <Button className="text-sm text-black/80" variant="text">
           #typescript
         </Button>
@@ -43,13 +45,16 @@ export default function Post({
       </div>
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <Button className="text-sm" variant="text">
+          <Button className="hidden text-sm md:block" variant="text">
             56 reactions{" "}
           </Button>
           <Button variant="text" className="text-sm">
-            <div className="flex items-center gap-2">
+            <div className="hidden items-center gap-2 md:flex">
               <ChatBubbleLeftIcon width={15} height={15} />
               Comments
+            </div>
+            <div className="items-center gap-2 md:hidden">
+              <ChatBubbleLeftIcon width={15} height={15} />
             </div>
           </Button>
         </div>
