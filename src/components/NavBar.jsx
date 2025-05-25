@@ -3,7 +3,7 @@ import Image from "next/image";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-export default function NavBar({ isLogged }) {
+export default function NavBar({ isLogged, query, setQuery }) {
   return (
     <nav className="flex justify-between border-b border-b-gray-200 bg-white p-2.5">
       <div className="flex gap-2 md:flex-2/3">
@@ -19,7 +19,7 @@ export default function NavBar({ isLogged }) {
           src="https://media2.dev.to/dynamic/image/quality=100/https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
         ></Image>
         <div className="hidden w-full md:block">
-          <SearchBar />
+          <SearchBar query={query} setQuery={setQuery} />
         </div>
       </div>
 
