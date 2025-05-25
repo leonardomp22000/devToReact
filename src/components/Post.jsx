@@ -1,6 +1,7 @@
 import CardBase from "./CardBase";
 import Image from "next/image";
 import Button from "./Button";
+import { useRouter } from "next/router";
 import {
   ChatBubbleLeftIcon,
   BookmarkIcon,
@@ -17,12 +18,17 @@ export default function Post({
   postID,
   onDelete,
 }) {
+  const router = useRouter();
   const handleClose = () => {
     onDelete(postID);
     return;
   };
   const handleEdit = () => {
-    console.log("EDIT");
+    localStorage.setItem(
+      "postInfo",
+      JSON.stringify({ title: mainText, body: body, id: postID }),
+    );
+    router.push("http://localhost:3000/new?state=edit");
     return;
   };
   return (

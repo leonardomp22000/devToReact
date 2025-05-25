@@ -5,8 +5,23 @@ import ActionBarPost from "@/components/ActionBarPost";
 import BodyPostInput from "@/components/BodyPostInput";
 import Button from "./Button";
 import { useRouter } from "next/router";
-export default function PostForm() {
+import { useEffect, useState } from "react";
+export default function PostForm({ isEdit }) {
   const router = useRouter();
+  const [postInfo, setPostInfo] = useState(null);
+
+  useEffect(() => {
+    if (isEdit) {
+      const info = localStorage.getItem("postInfo");
+      if (info) {
+        setPostInfo(JSON.parse(info));
+      }
+      console.log(postInfo);
+    } else {
+      setPostInfo(null);
+    }
+  }, [isEdit]);
+
   const handleSubmit = async (values, { setErrors }) => {
     try {
       const token = localStorage.getItem("authToken");
@@ -16,9 +31,13 @@ export default function PostForm() {
         setErrors({ general: "No autorizado" });
       }
 
-      const endpoint = "http://localhost:8080/post";
+      console.log(postInfo?.id);
+
+      const endpoint = !isEdit
+        ? `http://localhost:8080/post`
+        : `http://localhost:8080/post/${postInfo?.id}`;
       const response = await fetch(endpoint, {
-        method: "POST",
+        method: !isEdit ? "POST" : "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: token,
@@ -37,13 +56,18 @@ export default function PostForm() {
       setErrors({ general: "Error al conectar con el servidor" });
     }
   };
+  if (isEdit && postInfo === null) return <p>Cargando...</p>;
   return (
     <Formik
-      initialValues={{ title: "", body: "" }}
+      initialValues={{
+        title: postInfo?.title || "",
+        body: postInfo?.body || "",
+      }}
       validationSchema={postSchema}
       onSubmit={handleSubmit}
       validateOnBlur={false}
       validateOnChange={false}
+      enableReinitialize
     >
       {({ errors, submitCount }) => (
         <Form className="flex flex-col gap-4">
@@ -68,7 +92,7 @@ export default function PostForm() {
           />
           <div className="flex gap-3">
             <Button type="submit" variant="contained">
-              Publish
+              {isEdit ? "Update" : "Publish"}
             </Button>
             <Button type="button" variant="text">
               Save draft
