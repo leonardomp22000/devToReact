@@ -21,7 +21,12 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <NavBar query={query} setQuery={setQuery} isLogged={isLogged}></NavBar>
+      <NavBar
+        profilePic={user && user.profilePic}
+        query={query}
+        setQuery={setQuery}
+        isLogged={isLogged}
+      ></NavBar>
 
       <div className="mt-2 p-4 sm:flex sm:gap-2.5">
         <aside className="hidden flex-col gap-2 md:block md:grow md:basis-56 lg:flex">
