@@ -1,5 +1,6 @@
 import CardBase from "./CardBase";
 import Button from "./Button";
+import Link from "next/link";
 export default function CardLogIn() {
   return (
     <CardBase>
@@ -13,12 +14,16 @@ export default function CardLogIn() {
           careers.
         </p>
         <div className="flex w-full flex-col items-center gap-1">
-          <Button className="w-full" variant="outlined">
-            Create account
-          </Button>
-          <Button className="w-full" variant="text">
-            Log In
-          </Button>
+          <Link href="/auth?state=new-user">
+            <Button className="w-full" variant="outlined">
+              Create account
+            </Button>
+          </Link>
+          <Link className="hidden md:block" href="/auth">
+            <Button className="w-full" variant="text">
+              Log In
+            </Button>
+          </Link>
         </div>
       </div>
     </CardBase>

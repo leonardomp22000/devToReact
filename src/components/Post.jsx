@@ -23,13 +23,31 @@ export default function Post({
     onDelete(postID);
     return;
   };
-  const handleEdit = () => {
-    localStorage.setItem(
-      "postInfo",
-      JSON.stringify({ title: mainText, body: body, id: postID }),
-    );
-    router.push("http://localhost:3000/new?state=edit");
-    return;
+  const handleEdit = async () => {
+    try {
+      const userLogged = JSON.parse(localStorage.getItem("currentUser"))._id;
+      const values = { postID: postID, userLogged: userLogged };
+      const endpoint = "http://localhost:8080/auth/verifyUser";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        localStorage.setItem(
+          "postInfo",
+          JSON.stringify({ title: mainText, body: body, id: postID }),
+        );
+        router.push("http://localhost:3000/new?state=edit");
+        return;
+      } else {
+        console.error("Usuario incorrecto");
+      }
+    } catch (error) {
+      console.error("Hubo un error al hacer la peticion", error);
+    }
   };
   return (
     <CardBase className="md:p-4">
