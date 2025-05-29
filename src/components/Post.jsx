@@ -1,6 +1,7 @@
 import CardBase from "./CardBase";
 import Image from "next/image";
 import Button from "./Button";
+import { Toaster, toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import {
   ChatBubbleLeftIcon,
@@ -21,6 +22,7 @@ export default function Post({
   const router = useRouter();
   const handleClose = () => {
     onDelete(postID);
+
     return;
   };
   const handleEdit = async () => {
@@ -43,10 +45,11 @@ export default function Post({
         router.push("http://localhost:3000/new?state=edit");
         return;
       } else {
-        console.error("Usuario incorrecto");
+        toast.error("Usuario sin permiso de edicion");
       }
     } catch (error) {
       console.error("Hubo un error al hacer la peticion", error);
+      toast.error("Error con el servidor. Intente mas tarde");
     }
   };
   return (
@@ -127,6 +130,7 @@ export default function Post({
           </Button>
         </div>
       </div>
+      <Toaster position="bottom-right" reverseOrder={false} />
     </CardBase>
   );
 }

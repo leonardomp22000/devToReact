@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 
 export const usePosts = () => {
   const [results, setResults] = useState([]);
@@ -44,14 +45,17 @@ export const usePosts = () => {
         });
         if (response.ok) {
           setResults((prev) => prev.filter((post) => post._id !== id));
+          toast.success("Post eliminado correctamente");
         } else {
           console.error("Error al eliminar el post", await response.text());
+          toast.error("No eres el dueño del post");
         }
       }
     } catch (error) {
       console.error("Ocurrio un error inesperado", error);
     }
   };
+  <Toaster position="bottom-right" reverseOrder={false} />;
 
   return { query, setQuery, results, onDelete };
 };
