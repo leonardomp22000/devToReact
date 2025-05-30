@@ -23,7 +23,7 @@ export default function LoginForm() {
       const token = data.data.token;
       localStorage.setItem("authToken", token);
 
-      router.push("http://localhost:3000?state=new");
+      router.push("/?state=new");
     } catch (error) {
       console.error("Error de conexion", error);
       setErrors({ general: "Error al conectar con el servidor" });

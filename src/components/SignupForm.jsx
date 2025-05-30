@@ -24,7 +24,7 @@ export default function SignupForm() {
       }
 
       toast.success("Usuario registrado exitosamente");
-      router.push("http://localhost:3000/");
+      router.push("/");
     } catch (error) {
       console.error("Error de conexion", error);
       setErrors({ general: "Error al conectar con el servidor" });

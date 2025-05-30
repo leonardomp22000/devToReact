@@ -35,7 +35,7 @@ export default function NavBar({ isLogged, query, setQuery, profilePic }) {
         </div>
       ) : (
         <div className="flex items-center justify-end gap-2.5 md:flex-1/3">
-          <Link href="http://localhost:3000/new">
+          <Link href="/new">
             <Button variant="outlined">Create Post</Button>
           </Link>
           <Avatar profilePic={profilePic}></Avatar>

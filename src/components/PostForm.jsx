@@ -49,7 +49,7 @@ export default function PostForm({ isEdit }) {
         setErrors({ general: "No autorizado" });
         return;
       }
-      router.push("http://localhost:3000");
+      router.push("/");
       console.log("Datos guardados correctamente");
     } catch (error) {
       console.error("Error de conexion", error);
