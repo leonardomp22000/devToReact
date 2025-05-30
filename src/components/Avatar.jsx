@@ -31,7 +31,7 @@ export default function Avatar({ profilePic }) {
     <div className="relative inline-block text-left" ref={menuRef}>
       <Button onClick={() => setIsOpen(!isOpen)}>
         <Image
-          alt="Profile Image"
+          alt="ProfileImage"
           width={30}
           height={30}
           className="h-8 w-8 rounded-full"

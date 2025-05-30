@@ -1,21 +1,26 @@
 import Button from "./Button";
 import Image from "next/image";
 const socialMedia = [
-  "/Icons/x.svg",
-  "/Icons/facebook.svg",
-  "/Icons/gitHub.svg",
-  "/Icons/instagram.svg",
-  "/Icons/twiter.svg",
-  "/Icons/m.svg",
-  "/Icons/butterfly.svg",
+  { src: "/Icons/x.svg", href: "#", alt: "x" },
+  { src: "/Icons/facebook.svg", href: "#", alt: "facebook" },
+  { src: "/Icons/gitHub.svg", href: "#", alt: "github" },
+  { src: "/Icons/instagram.svg", href: "#", alt: "instagram" },
+  { src: "/Icons/twiter.svg", href: "#", alt: "twiter" },
+  { src: "/Icons/m.svg", href: "#", alt: "m" },
+  { src: "/Icons/butterfly.svg", href: "#", alt: "butterfly" },
 ];
 export default function SocialMedia() {
   return (
     <section>
-      {socialMedia.map((network, index) => {
+      {socialMedia.map((network) => {
         return (
-          <Button key={network - index} variant="text">
-            <Image src={network} width={20} height={30}></Image>
+          <Button key={network.alt} variant="text">
+            <Image
+              src={network.src}
+              alt={network.alt}
+              width={25}
+              height={25}
+            ></Image>
           </Button>
         );
       })}

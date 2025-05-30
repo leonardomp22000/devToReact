@@ -16,7 +16,7 @@ export default function NavBar({ isLogged, query, setQuery, profilePic }) {
         <Image
           width={50}
           height={50}
-          alt="Logo"
+          alt="DevToLogo"
           src="https://media2.dev.to/dynamic/image/quality=100/https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
         ></Image>
         <div className="hidden w-full md:block">

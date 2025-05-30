@@ -58,6 +58,7 @@ export default function Post({
         <div className="flex items-center gap-2">
           <Image
             src={userPicture}
+            alt="userPicture"
             width={30}
             height={30}
             className="h-8 w-8 rounded-full"
