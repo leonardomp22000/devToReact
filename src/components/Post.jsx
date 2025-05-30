@@ -21,8 +21,10 @@ export default function Post({
 }) {
   const router = useRouter();
   const handleClose = () => {
-    onDelete(postID);
-
+    const confirmDelete = confirm("¿Estas seguro que quieres borrar el post?");
+    if (confirmDelete) {
+      onDelete(postID);
+    }
     return;
   };
   const handleEdit = async () => {
