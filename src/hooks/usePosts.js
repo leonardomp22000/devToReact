@@ -17,6 +17,7 @@ export const usePosts = () => {
             `http://localhost:8080/post?title=${encodeURIComponent(query)}`,
           );
           const data = await response.json();
+
           if (data.success) {
             setResults(data.data.posts);
           } else {

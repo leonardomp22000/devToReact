@@ -13,7 +13,7 @@ import WaterCoolerCards from "@/components/WatercoolerCards";
 import { useAuth } from "@/hooks/useAuth";
 import { usePosts } from "@/hooks/usePosts";
 export default function Home() {
-  const { query, setQuery } = usePosts();
+  const { query, setQuery, results, onDelete } = usePosts();
   const { user, isLogged, loading } = useAuth();
   if (loading) {
     return <p className="mt-10 text-center">Cargando...</p>;
@@ -54,7 +54,12 @@ export default function Home() {
           <MainCard></MainCard>
           {isLogged ? (
             user ? (
-              <Posts userPicture={user.profilePic} userName={user.name} />
+              <Posts
+                results={results}
+                onDelete={onDelete}
+                userPicture={user.profilePic}
+                userName={user.name}
+              />
             ) : (
               <p className="text-sm text-gray-500">Cargando publicaciones...</p>
             )

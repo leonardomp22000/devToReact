@@ -1,8 +1,7 @@
 import Post from "./Post";
 import { usePosts } from "@/hooks/usePosts";
 
-export default function Posts() {
-  const { results, onDelete } = usePosts();
+export default function Posts({ results, onDelete }) {
   return (
     <div className="flex flex-col gap-4">
       {results ? (
