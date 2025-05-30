@@ -2,8 +2,9 @@ import Button from "./Button";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
+import Avatar from "./Avatar";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-export default function NavBar({ isLogged, query, setQuery }) {
+export default function NavBar({ isLogged, query, setQuery, profilePic }) {
   return (
     <nav className="flex justify-between border-b border-b-gray-200 bg-white p-2.5">
       <div className="flex gap-2 md:flex-2/3">
@@ -15,7 +16,7 @@ export default function NavBar({ isLogged, query, setQuery }) {
         <Image
           width={50}
           height={50}
-          alt="Logo"
+          alt="DevToLogo"
           src="https://media2.dev.to/dynamic/image/quality=100/https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
         ></Image>
         <div className="hidden w-full md:block">
@@ -33,10 +34,11 @@ export default function NavBar({ isLogged, query, setQuery }) {
           </Link>
         </div>
       ) : (
-        <div className="flex justify-end gap-2.5 md:flex-1/3">
-          <Link href="http://localhost:3000/new">
+        <div className="flex items-center justify-end gap-2.5 md:flex-1/3">
+          <Link href="/new">
             <Button variant="outlined">Create Post</Button>
           </Link>
+          <Avatar profilePic={profilePic}></Avatar>
         </div>
       )}
     </nav>

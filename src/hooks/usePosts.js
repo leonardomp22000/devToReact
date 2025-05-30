@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const usePosts = () => {
   const [results, setResults] = useState([]);
@@ -13,9 +14,10 @@ export const usePosts = () => {
       const fetchResults = async () => {
         try {
           const response = await fetch(
-            `http://localhost:8080/post?title=${encodeURIComponent(query)}`,
+            `https://apidevto.onrender.com/post?title=${encodeURIComponent(query)}`,
           );
           const data = await response.json();
+
           if (data.success) {
             setResults(data.data.posts);
           } else {
@@ -33,20 +35,21 @@ export const usePosts = () => {
   const onDelete = async (id) => {
     try {
       const token = localStorage.getItem("authToken");
-      const endpoint = `http://localhost:8080/post/${id}`;
-      if (confirm("¿Seguro que quieres eliminar el post?")) {
-        // Code to execute if the user clicks "OK"
-        const response = await fetch(endpoint, {
-          method: "DELETE",
-          headers: {
-            Authorization: token,
-          },
-        });
-        if (response.ok) {
-          setResults((prev) => prev.filter((post) => post._id !== id));
-        } else {
-          console.error("Error al eliminar el post", await response.text());
-        }
+      const endpoint = `https://apidevto.onrender.com/post/${id}`;
+
+      // Code to execute if the user clicks "OK"
+      const response = await fetch(endpoint, {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+        },
+      });
+      if (response.ok) {
+        setResults((prev) => prev.filter((post) => post._id !== id));
+        toast.success("Post eliminado correctamente");
+      } else {
+        console.error("Error al eliminar el post", await response.text());
+        toast.error("No eres el dueño del post");
       }
     } catch (error) {
       console.error("Ocurrio un error inesperado", error);
