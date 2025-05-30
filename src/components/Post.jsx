@@ -44,7 +44,7 @@ export default function Post({
           "postInfo",
           JSON.stringify({ title: mainText, body: body, id: postID }),
         );
-        router.push("http://localhost:3000/new?state=edit");
+        router.push("/new?state=edit");
         return;
       } else {
         toast.error("Usuario sin permiso de edicion");
@@ -133,7 +133,6 @@ export default function Post({
           </Button>
         </div>
       </div>
-      <Toaster position="bottom-right" reverseOrder={false} />
     </CardBase>
   );
 }

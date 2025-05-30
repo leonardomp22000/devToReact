@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { Toaster } from "react-hot-toast";
 
 import { Inter } from "next/font/google";
 
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div className={inter.variable}>
       <Component {...pageProps} />
+      <Toaster position="bottom-right" reverseOrder={false} />
     </div>
   );
 }
