@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 export const usePosts = () => {
   const [results, setResults] = useState([]);
@@ -14,7 +14,7 @@ export const usePosts = () => {
       const fetchResults = async () => {
         try {
           const response = await fetch(
-            `http://localhost:8080/post?title=${encodeURIComponent(query)}`,
+            `https://apidevto.onrender.com/post?title=${encodeURIComponent(query)}`,
           );
           const data = await response.json();
 
@@ -35,7 +35,7 @@ export const usePosts = () => {
   const onDelete = async (id) => {
     try {
       const token = localStorage.getItem("authToken");
-      const endpoint = `http://localhost:8080/post/${id}`;
+      const endpoint = `https://apidevto.onrender.com/post/${id}`;
 
       // Code to execute if the user clicks "OK"
       const response = await fetch(endpoint, {

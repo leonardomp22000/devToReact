@@ -1,5 +1,4 @@
 import Post from "./Post";
-import { usePosts } from "@/hooks/usePosts";
 
 export default function Posts({ results, onDelete }) {
   return (

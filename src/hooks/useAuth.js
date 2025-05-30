@@ -30,7 +30,7 @@ export const useAuth = () => {
         const { id } = jwtDecode(token);
         if (!id) return setLoading(false);
 
-        const res = await fetch(`http://localhost:8080/users/${id}`);
+        const res = await fetch(`https://apidevto.onrender.com/users/${id}`);
         const data = await res.json();
 
         if (!data.success) return;

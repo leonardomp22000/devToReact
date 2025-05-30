@@ -3,7 +3,6 @@ import Button from "./Button";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 export default function Avatar({ profilePic }) {
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   useEffect(() => {
@@ -21,8 +20,6 @@ export default function Avatar({ profilePic }) {
       localStorage.removeItem("currentUser");
       localStorage.removeItem("postInfo");
       window.location.reload();
-
-      //   router.push("http://localhost:3000/auth");
     } catch (error) {
       console.error("Error al salir de la sesion", error);
     }

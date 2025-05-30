@@ -1,4 +1,3 @@
-import NavBar from "@/components/NavBar";
 import CardBase from "@/components/CardBase";
 import SignupForm from "@/components/SignupForm";
 

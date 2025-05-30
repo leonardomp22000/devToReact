@@ -34,8 +34,8 @@ export default function PostForm({ isEdit }) {
       console.log(postInfo?.id);
 
       const endpoint = !isEdit
-        ? `http://localhost:8080/post`
-        : `http://localhost:8080/post/${postInfo?.id}`;
+        ? `https://apidevto.onrender.com/post`
+        : `https://apidevto.onrender.com/post/${postInfo?.id}`;
       const response = await fetch(endpoint, {
         method: !isEdit ? "POST" : "PATCH",
         headers: {

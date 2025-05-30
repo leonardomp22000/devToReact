@@ -9,7 +9,7 @@ export default function LoginForm() {
   const router = useRouter();
   const handleSubmit = async (values, { setErrors, setSubmitting }) => {
     try {
-      const endpoint = "http://localhost:8080/auth/login";
+      const endpoint = "https://apidevto.onrender.com/auth/login";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

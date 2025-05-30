@@ -1,7 +1,7 @@
 import CardBase from "./CardBase";
 import Image from "next/image";
 import Button from "./Button";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import {
   ChatBubbleLeftIcon,
@@ -31,7 +31,7 @@ export default function Post({
     try {
       const userLogged = JSON.parse(localStorage.getItem("currentUser"))._id;
       const values = { postID: postID, userLogged: userLogged };
-      const endpoint = "http://localhost:8080/auth/verifyUser";
+      const endpoint = "https://apidevto.onrender.com/auth/verifyUser";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

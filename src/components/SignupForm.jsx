@@ -10,7 +10,7 @@ export default function SignupForm() {
   const router = useRouter();
   const handleSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
-      const endpoint = "http://localhost:8080/users";
+      const endpoint = "https://apidevto.onrender.com/users";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
