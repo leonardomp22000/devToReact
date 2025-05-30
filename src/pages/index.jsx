@@ -13,7 +13,7 @@ import WaterCoolerCards from "@/components/WatercoolerCards";
 import { useAuth } from "@/hooks/useAuth";
 import { usePosts } from "@/hooks/usePosts";
 export default function Home() {
-  const { query, setQuery } = usePosts();
+  const { query, setQuery, results, onDelete } = usePosts();
   const { user, isLogged, loading } = useAuth();
   if (loading) {
     return <p className="mt-10 text-center">Cargando...</p>;
@@ -21,7 +21,12 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <NavBar query={query} setQuery={setQuery} isLogged={isLogged}></NavBar>
+      <NavBar
+        profilePic={user && user.profilePic}
+        query={query}
+        setQuery={setQuery}
+        isLogged={isLogged}
+      ></NavBar>
 
       <div className="mt-2 p-4 sm:flex sm:gap-2.5">
         <aside className="hidden flex-col gap-2 md:block md:grow md:basis-56 lg:flex">
@@ -49,7 +54,12 @@ export default function Home() {
           <MainCard></MainCard>
           {isLogged ? (
             user ? (
-              <Posts userPicture={user.profilePic} userName={user.name} />
+              <Posts
+                results={results}
+                onDelete={onDelete}
+                userPicture={user.profilePic}
+                userName={user.name}
+              />
             ) : (
               <p className="text-sm text-gray-500">Cargando publicaciones...</p>
             )

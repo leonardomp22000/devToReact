@@ -9,7 +9,7 @@ export default function LoginForm() {
   const router = useRouter();
   const handleSubmit = async (values, { setErrors, setSubmitting }) => {
     try {
-      const endpoint = "http://localhost:8080/auth/login";
+      const endpoint = "https://apidevto.onrender.com/auth/login";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -23,7 +23,7 @@ export default function LoginForm() {
       const token = data.data.token;
       localStorage.setItem("authToken", token);
 
-      router.push("http://localhost:3000?state=new");
+      router.push("/?state=new");
     } catch (error) {
       console.error("Error de conexion", error);
       setErrors({ general: "Error al conectar con el servidor" });

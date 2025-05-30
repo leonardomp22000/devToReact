@@ -34,8 +34,8 @@ export default function PostForm({ isEdit }) {
       console.log(postInfo?.id);
 
       const endpoint = !isEdit
-        ? `http://localhost:8080/post`
-        : `http://localhost:8080/post/${postInfo?.id}`;
+        ? `https://apidevto.onrender.com/post`
+        : `https://apidevto.onrender.com/post/${postInfo?.id}`;
       const response = await fetch(endpoint, {
         method: !isEdit ? "POST" : "PATCH",
         headers: {
@@ -49,7 +49,7 @@ export default function PostForm({ isEdit }) {
         setErrors({ general: "No autorizado" });
         return;
       }
-      router.push("http://localhost:3000");
+      router.push("/");
       console.log("Datos guardados correctamente");
     } catch (error) {
       console.error("Error de conexion", error);

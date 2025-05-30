@@ -11,6 +11,7 @@ export default function ChallengeCard({
       <p className="font-sans text-base">{status}</p>
       <Image
         className="w-full rounded-md"
+        alt="challenge"
         src={image}
         width={250}
         height={200}

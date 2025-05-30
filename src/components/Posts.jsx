@@ -1,8 +1,6 @@
 import Post from "./Post";
-import { usePosts } from "@/hooks/usePosts";
 
-export default function Posts() {
-  const { results, onDelete } = usePosts();
+export default function Posts({ results, onDelete }) {
   return (
     <div className="flex flex-col gap-4">
       {results ? (
@@ -12,7 +10,13 @@ export default function Posts() {
               onDelete={onDelete}
               postID={post._id}
               key={index}
-              creationDate={"Apr 3"}
+              creationDate={new Date(post.created_at).toLocaleDateString(
+                "es-ES",
+                {
+                  day: "numeric",
+                  month: "short",
+                },
+              )}
               userPicture={
                 post.user.profilePic ||
                 "https://media2.dev.to/dynamic/image/width=775%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwkz8yrhhodumbj7pnfwv.png"

@@ -10,7 +10,7 @@ export default function SignupForm() {
   const router = useRouter();
   const handleSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
-      const endpoint = "http://localhost:8080/users";
+      const endpoint = "https://apidevto.onrender.com/users";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -24,7 +24,7 @@ export default function SignupForm() {
       }
 
       toast.success("Usuario registrado exitosamente");
-      router.push("http://localhost:3000/");
+      router.push("/");
     } catch (error) {
       console.error("Error de conexion", error);
       setErrors({ general: "Error al conectar con el servidor" });

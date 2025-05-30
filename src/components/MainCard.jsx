@@ -27,6 +27,7 @@ export default function () {
             className="rounded-lg"
             width={800}
             height={150}
+            alt="mainImage"
             src={
               "https://media2.dev.to/dynamic/image/width=775%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwkz8yrhhodumbj7pnfwv.png"
             }
